@@ -1,0 +1,35 @@
+h1
+{
+    background-color: lime;
+    text-align: center;
+}
+
+.question
+{
+    border: 5px black solid;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 150px;
+    width: 50%;
+    height: 50%;
+    background-color: coral;
+}
+
+.alt
+{   margin-top:15px;
+    margin-bottom: 5px;
+    border-top: black solid;
+    border-bottom:black solid;
+    height: 50px;
+    background-color: darkorange;
+    
+    text-align: center;
+}
+
+.header
+{
+    background-color: cyan;
+    height: auto;
+    width: auto;
+
+}
