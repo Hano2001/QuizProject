@@ -1,8 +1,8 @@
 class Quiz {
-  constructor(name, questionsAmount, score) {
+  constructor(name, questionsAmount) {
     this.name = name;
     this.questionsAmount = questionsAmount;
-    this.score = score;
+    this.score = 0;
   }
 
   submitName() {
@@ -12,12 +12,10 @@ class Quiz {
     this.questionsAmount = window.prompt("Hur många frågor? (5-10)");
     inputAmount.innerHTML = this.questionsAmount;
     userName.innerHTML = this.name;
-
-    return this.questionsAmount;
   }
 
-  fetchQuestions(questionAmount) {
-    let amount = questionAmount;
+  fetchQuestions() {
+    let amount = this.questionAmount;
     console.log(amount);
     fetch(
       "https://quizapi.io/api/v1/questions?apiKey=KKWjowvjvm8ginRJqxe6NsYhsyLuecmF7p8JMfJ3&limit=" +

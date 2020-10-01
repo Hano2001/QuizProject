@@ -1,27 +1,16 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    let quiz = new Quiz();
-    
-        let startBtn = document.getElementById("startBtn");
+  console.log(quest);
+  let quiz = new Quiz();
 
-        startBtn.addEventListener("click", function(e)
-        {
-            quiz.submitName();
-        })
-        let testBtn = document.getElementById("test");
-        
+  let startBtn = document.getElementById("startBtn");
 
-        testBtn.addEventListener("click", function(e)
-        {   
-            quiz.fetchQuestions(quiz.questionsAmount);
-            //quiz.counter(quiz.amount);
-        })
+  startBtn.addEventListener("click", quiz.submitName)
+  
+  let testBtn = document.getElementById("test");
 
-        let nextBtn = document.getElementById("next");
+  testBtn.addEventListener("click", quiz.fetchQuestions);
 
-        /*nextBtn.addEventListener("click", function(e)
-        {
-            quiz.question();
-        })*/
-    
+  let nextBtn = document.getElementById("next");
 
+  
 });
