@@ -3,6 +3,7 @@ class Quiz {
     this.name = name;
     this.questionsAmount = questionsAmount;
     this.score = 0;
+    this.questions = [];
   }
 
   submitName() {
@@ -24,43 +25,24 @@ class Quiz {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        
-       
-        let array = [];
 
-        for (let i = 0; i < result.length; i ++)
-        {
-            array[i] = result[i];
-        }
-        
-        quest.innerHTML = array[0].question;
-        
-        //console.log(result[0].answers.answer_a);
-        alt1.innerHTML = array[0].answers.answer_a;
-        alt2.innerHTML = array[0].answers.answer_b;
-        alt3.innerHTML = array[0].answers.answer_c;
-        alt4.innerHTML = array[0].answers.answer_d;
-         // Counter(inputAmount)
-        // {
-        // let qAmount = 0;
-        // qAmount += 1;
-        
+        this.questions = result;
 
-        // inputAmount.innerHTML = "Fråga:" + qAmount + "/" + amount;
+        let alt1 = document.getElementById("alt1");
+        let alt2 = document.getElementById("alt2");
+        let alt3 = document.getElementById("alt3");
+        let alt4 = document.getElementById("alt4");
 
-        // }
+        quest.innerHTML = result[0].question;
 
+        alt1.innerHTML = result[0].answers.answer_a;
+        alt2.innerHTML = result[0].answers.answer_b;
+        alt3.innerHTML = result[0].answers.answer_c;
+        alt4.innerHTML = result[0].answers.answer_d;
       });
   }
 
-//   question(questionAmount, result) {
-//     for (let i = 0; i <= questionAmount; i++) {
-//       quest.innerHTML = result[i].question;
-
-//       alt1.innerHTML = result[i].answers.answer_a;
-//       alt2.innerHTML = result[i].answers.answer_b;
-//       alt3.innerHTML = result[i].answers.answer_c;
-//       alt4.innerHTML = result[i].answers.answer_d;
-//     }
-//   }
+  renderQuestions() {
+    //To do: Move render logic here
+  }
 }
