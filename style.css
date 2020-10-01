@@ -1,18 +1,30 @@
-h1
+body
 {
+    
+}
+
+.rubrik
+{   width: 100%;
     background-color: lime;
     text-align: center;
 }
 
 .question
 {
-    border: 5px black solid;
+    border: 5px white solid;
     border-radius: 10px;
     margin: auto;
     margin-top: 150px;
     width: 50%;
     height: 50%;
-    background-color: coral;
+    background-color: white;
+}
+
+.questions
+{   font-size: larger;
+    font-weight: bolder;
+    font-family: monospace;
+    background-color: palegreen;
 }
 
 .alt
@@ -27,9 +39,35 @@ h1
 }
 
 .header
-{
+{   text-align: center;
     background-color: cyan;
-    height: auto;
+    height: 50px;
     width: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border: black solid;
 
+}
+
+.checkbox
+{
+    float: right;
+}
+.startButton
+{
+    text-align: center;
+}
+
+.userName
+{
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+    border: navy solid;
+}
+
+.next
+{
+    float: right;
 }
