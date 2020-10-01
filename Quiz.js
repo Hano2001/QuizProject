@@ -4,6 +4,7 @@ class Quiz {
     this.questionsAmount = questionsAmount;
     this.score = 0;
     this.questions = [];
+    this.currentIndex = 0;
   }
 
   submitName() {
@@ -13,10 +14,11 @@ class Quiz {
     this.questionsAmount = window.prompt("Hur många frågor? (5-10)");
     inputAmount.innerHTML = this.questionsAmount;
     userName.innerHTML = this.name;
+    return this.questionsAmount;
   }
 
   fetchQuestions() {
-    let amount = this.questionAmount;
+    let amount = this.questionsAmount;
     console.log(amount);
     fetch(
       "https://quizapi.io/api/v1/questions?apiKey=KKWjowvjvm8ginRJqxe6NsYhsyLuecmF7p8JMfJ3&limit=" +
@@ -42,7 +44,8 @@ class Quiz {
       });
   }
 
-  renderQuestions() {
-    //To do: Move render logic here
+  increaseIndex() {
+      currentIndex += 1;
+    
   }
 }

@@ -4,11 +4,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   let startBtn = document.getElementById("startBtn");
 
-  startBtn.addEventListener("click", quiz.submitName)
-  
-  let testBtn = document.getElementById("test");
+        startBtn.addEventListener("click", function(e)
+        {
+            quiz.submitName();
+        })
+        let testBtn = document.getElementById("test");
 
-  testBtn.addEventListener("click", quiz.fetchQuestions);
+
+        testBtn.addEventListener("click", function(e)
+        {   
+            quiz.fetchQuestions(quiz.questionsAmount);
+            
+        })
 
   let nextBtn = document.getElementById("next");
 
