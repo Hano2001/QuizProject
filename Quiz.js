@@ -4,7 +4,7 @@ class Quiz {
     this.questionsAmount = questionsAmount;
     this.score = 0;
     this.questions = [];
-    this.currentIndex = 0;
+    this.currentIndex = -1;
   }
 
   submitName() {
@@ -30,22 +30,30 @@ class Quiz {
 
         this.questions = result;
 
-        let alt1 = document.getElementById("alt1");
-        let alt2 = document.getElementById("alt2");
-        let alt3 = document.getElementById("alt3");
-        let alt4 = document.getElementById("alt4");
-
-        quest.innerHTML = result[0].question;
-
-        alt1.innerHTML = result[0].answers.answer_a;
-        alt2.innerHTML = result[0].answers.answer_b;
-        alt3.innerHTML = result[0].answers.answer_c;
-        alt4.innerHTML = result[0].answers.answer_d;
+        return this.questions;
       });
   }
+  nextQuestion() {
+    this.currentIndex += 1;
+    inputAmount.innerHTML = this.currentIndex + 1 + "/" + this.questionsAmount;
+    if (this.currentIndex +1 > this.questionsAmount) {
+      window.alert("Du är klar!");
+    }
+    // let alt1 = document.getElementById("alt1");
+    // let alt2 = document.getElementById("alt2");
+    // let alt3 = document.getElementById("alt3");
+    // let alt4 = document.getElementById("alt4");
+    // let alt5 = document.getElementById("alt5");
 
-  increaseIndex() {
-      currentIndex += 1;
+  
+      document.getElementById("quest").textContent = this.questions[this.currentIndex].question;
+      document.getElementById("alt1").textContent = this.questions[this.currentIndex].answers.answer_a;
+      document.getElementById("alt2").textContent = this.questions[this.currentIndex].answers.answer_b;
+      document.getElementById("alt3").textContent = this.questions[this.currentIndex].answers.answer_c;
+      document.getElementById("alt4").textContent = this.questions[this.currentIndex].answers.answer_d;
+      document.getElementById("alt5").textContent = this.questions[this.currentIndex].answers.answer_e;
+      
+
     
   }
 }
