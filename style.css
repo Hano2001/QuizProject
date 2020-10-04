@@ -71,3 +71,11 @@ body
 {
     float: right;
 }
+.answer
+{
+    float: right;
+}
+.right
+{
+    background-color: green;
+}
