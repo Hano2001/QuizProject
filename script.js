@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   
   let corrBtn = document.getElementById("correct");
   corrBtn.addEventListener("click", function (e) {
-    correct.correctAnswers(question.answers, question.answers2, question.mainQuestions, question.correctValue);
+    correct.correctAnswers(question.answers, question.answers2, question.mainQuestion);
   });
 
   let resultBtn = document.getElementById("result");
   resultBtn.addEventListener("click", function(e){
-    results.results(correct.totalAnswers, quiz.questions,question.correctValue);
+    results.results(correct.totalAnswers, quiz.questions, question.correctValue);
 
     
   })

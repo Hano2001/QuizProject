@@ -5,7 +5,7 @@ class Questions {
     this.questionsAmount = questionsAmount;
     this.answers = [];
     this.answers2 = [];
-    this.mainQuestions = [];
+    this.mainQuestion = [];
     this.correct = [];
     this.correctValue = [];
   }
@@ -26,13 +26,13 @@ class Questions {
     }
 
     this.correct[current] = questions[current].correct_answers;
-    this.correctValue = Object.values(this.correct[current]);
+    this.correctValue[current] = Object.values(this.correct[current]);
     //Makes the different question answers into an array
 
     //console.log(current);
     document.getElementById("quest").textContent = questions[current].question;
    
-    this.mainQuestions[current] = questions[current].question;
+    this.mainQuestion[current] = questions[current].question;
     //console.log(this.correct);
 
     //console.log(correctValue);
@@ -116,7 +116,7 @@ class Questions {
 
     console.log(this.answers);
 
-    return this.answers, this.answers2, this.finalQuestions, this.correctValue;
+    return this.answers, this.answers2, this.mainQuestion, this.correctValue;
 
    
   }

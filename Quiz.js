@@ -14,6 +14,17 @@ class Quiz {
     let userName = document.getElementById("userName");
     this.name = window.prompt("Vad heter du?");
     this.questionsAmount = window.prompt("Hur många frågor? (5-10)");
+    if(this.questionsAmount > 10)
+    {
+      alert("Du angav för många frågor. Tio är max, du får svara på tio frågor.")
+      this.questionsAmount = 10;
+    }
+
+    if (this.questionsAmount < 5)
+    {
+      alert("Du angav för få frågor. Fem är minst godkänt. Du får svara på fem frågor")
+      this.questionsAmount = 5;
+    }
     inputAmount.innerHTML = this.questionsAmount;
     userName.innerHTML = this.name;
     return this.questionsAmount;
