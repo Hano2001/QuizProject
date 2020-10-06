@@ -13,14 +13,7 @@ class FinalResults {
   results(totalAnswers, questions, questionsAmount, correctAnswers) {
 
     this.index +=1
-  //   for(let i = 0; i < 5; i ++){
-  //   if(correctAnswers[this.index][i] === "true")
-  //   {
-  //     if(i = 0) {
-  //       console.log("A");
-  //     }
-  //   }
-  // }
+  
     inputAmount.innerHTML = this.index + 1 + "/" + questionsAmount; //index + 1, because there is no question 0.
     console.log(totalAnswers);
     document.getElementById("quest").textContent =

@@ -37,7 +37,7 @@ class Quiz {
     )
       .then((response) => response.json())
       .then((result) => {
-        //console.log(result);
+        console.log(result);
 
         this.questions = result;
         
