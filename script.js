@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   
   let corrBtn = document.getElementById("correct");
   corrBtn.addEventListener("click", function (e) {
-    correct.correcting(question.correctAnswers, question.userAnswers, question.mainQuestion, quiz.questionsAmount);
+    correct.correcting(question.correctAnswers, question.userAnswers, question.mainQuestion, quiz.questionsAmount, question.testAnswers);
   });
 
   let resultBtn = document.getElementById("result");

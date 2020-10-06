@@ -13,7 +13,7 @@ class Correct {
     
     
     //correctAnswers.splice(0, 2); // I used splice on these two Arrays. The first two index's is empty.
-    userAnswer.splice(0, 1);     //Because there is no answers in the first two runs of the method question.
+    //userAnswer.splice(0, 1);     //Because there is no answers in the first two runs of the method question.
     for (let i = 0; i < correctAnswers.length; i++) {
       this.totalAnswers[i] = {
         Question: mainQuestion[i],

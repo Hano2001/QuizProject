@@ -6,8 +6,8 @@ class Questions {
     this.correctAnswers = [];
     this.userAnswers = [];
     this.mainQuestion = [];
-
-    this.midArray = [];
+    this.checkArray=[];
+    this.midArray=[];
   }
   nextQuestion(questions, questionsAmount) {
     let c1 = document.getElementById("c1");
@@ -18,7 +18,7 @@ class Questions {
     let c6 = document.getElementById("c6");
 
     this.currentIndex += 1;
-    let current = this.currentIndex - 1;
+    let current = this.currentIndex - 1; //I have a different currentIndex, so I don't miss the [0] values.
 
     inputAmount.innerHTML = this.currentIndex + "/" + questionsAmount;
     if (this.currentIndex > questionsAmount) {
@@ -31,9 +31,10 @@ class Questions {
     correctArray[current] = questions[current].correct_answers;
     this.midArray[current] = Object.values(correctArray[current]);
     this.correctAnswers[current] = Array.from(this.midArray[current]);
-
+    
     //Makes the different question answers into an Array^
 
+    
     document.getElementById("quest").textContent = questions[current].question;
 
     this.mainQuestion[current] = questions[current].question;
@@ -70,28 +71,28 @@ class Questions {
     } else {
       document.getElementById("alt6").textContent = "";
     }
+    //this.checkArray.splice(0, this.checkArray.length);
+    let checks = document.querySelectorAll("input[type=checkbox]:checked");
+    
+    
+    for (let i = 0; i < checks.length; i++) {
+      
+      
+      this.checkArray.push(checks[i].value)
+      
+      
+      
+    }
+    
+    
+    console.log(this.checkArray);
+   //this.checkArray.splice(0, this.checkArray.length
 
-    if (c1.checked === true) {
-      this.userAnswers[current] = 0;
-    }
+    
+    
+    
 
-    if (c2.checked === true) {
-      this.userAnswers[current] = 1;
-    }
-
-    if (c3.checked === true) {
-      this.userAnswers[current] = 2;
-    }
-
-    if (c4.checked === true) {
-      this.userAnswers[current] = 3;
-    }
-    if (c5.checked === true) {
-      this.userAnswers[current] = 4;
-    }
-    if (c6.checked === true) {
-      this.userAnswers[current] = 5;
-    }
+    
 
     c1.checked = false;
     c2.checked = false;
