@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   startBtn.addEventListener("click", function (e) {
     quiz.submitInfo();
   });
-  let testBtn = document.getElementById("test");
+  let fetchBtn = document.getElementById("fetch");
 
-  testBtn.addEventListener("click", function (e) {
+  fetchBtn.addEventListener("click", function (e) {
     quiz.fetchQuestions(quiz.questionsAmount);
     
   });
@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   
   let corrBtn = document.getElementById("correct");
   corrBtn.addEventListener("click", function (e) {
-    correct.correctAnswers(question.answers, question.answers2, question.mainQuestion);
+    correct.correcting(question.correctAnswers, question.userAnswers, question.mainQuestion, quiz.questionsAmount);
   });
 
   let resultBtn = document.getElementById("result");
   resultBtn.addEventListener("click", function(e){
-    results.results(correct.totalAnswers, quiz.questions, question.correctValue);
+    results.results(correct.totalAnswers, quiz.questions, quiz.questionsAmount, question.correctAnswers);
 
     
   })

@@ -7,15 +7,27 @@ class FinalResults {
     this.answerD = answerD;
     this.answerE = answerE;
     this.answerF = answerF;
-    this.index = -1;
+    this.index = -1; //index starts as -1. So that you can get the question/answers with index 0. This.index starts at 1 in results method.
   }
 
-  results(totalAnswers, questions, correctValue) {
-    
+  results(totalAnswers, questions, questionsAmount, correctAnswers) {
+
     this.index +=1
-    document.getElementById("quest").textContent = totalAnswers[this.index].Question;
+    for(let i = 0; i < 5; i ++){
+    if(correctAnswers[this.index][i] === "true")
+    {
+      if(i = 0) {
+        console.log("A");
+      }
+    }
+  }
+    inputAmount.innerHTML = this.index + 1 + "/" + questionsAmount; //index + 1, because there is no question 0.
+    console.log(totalAnswers);
+    document.getElementById("quest").textContent =
+      questions[this.index].question;
     document.getElementById("alt1").textContent =
       questions[this.index].answers.answer_a;
+      
     document.getElementById("alt2").textContent =
       questions[this.index].answers.answer_b;
     document.getElementById("alt3").textContent =
@@ -26,15 +38,11 @@ class FinalResults {
       questions[this.index].answers.answer_e;
     document.getElementById("alt6").textContent =
       questions[this.index].answers.answer_f;
-console.log(this.index);
-    // let box = document.getElementById("question");
-    // let nextBtn = document.createElement("button");
-    // box.appendChild(nextBtn);
-    // nextBtn.innerHTML = "Nästa";
-    // nextBtn.addEventListener("click", function (e) {
-    //   console.log(correctValue)
-    // });
-
+    console.log(this.index);
+    
+    
+    
+   
     //console.log(correctValue[index]);
   }
 }

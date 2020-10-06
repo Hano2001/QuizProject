@@ -30,8 +30,8 @@ body
 .alt
 {   margin-top:15px;
     margin-bottom: 5px;
-    border-top: black solid;
-    border-bottom:black solid;
+    border: black solid;
+    
     height: 50px;
     background-color: darkorange;
     
@@ -65,6 +65,11 @@ body
     color: white;
     font-weight: bolder;
     border: navy solid;
+}
+
+.score
+{
+    float: right;
 }
 
 .next

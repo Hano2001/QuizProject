@@ -3,32 +3,25 @@ class Correct {
     this.points = 0;
     this.answerAmount = 0;
     this.totalAnswers = [];
+    
   }
-  correctAnswers(answers, answers2, mainQuestion, correctValue) {
-    let box = document.getElementById("question");
-    let corrBtn = document.createElement("button");
-    corrBtn.innerHTML = "testknapp";
-    corrBtn.id="test";
-    box.appendChild(corrBtn);
-    let testb = document.getElementById("test")
-    testb.addEventListener("click",function (e)
-    {
-      console.log("HEj HEj")
-    })
-    answers.splice(0, 2);
-    answers2.splice(0, 2);
-    for (let i = 0; i < answers.length; i++) {
+  correcting(correctAnswers, userAnswer, mainQuestion, questionsAmount) {
+   
+    
+    
+    
+    
+    
+    //correctAnswers.splice(0, 2); // I used splice on these two Arrays. The first two index's is empty.
+    userAnswer.splice(0, 1);     //Because there is no answers in the first two runs of the method question.
+    for (let i = 0; i < correctAnswers.length; i++) {
       this.totalAnswers[i] = {
         Question: mainQuestion[i],
-        "CorrectAnswer?": answers[i],
-        userAnswer: answers2[i], 
-        
-        
+        "CorrectAnswer?": correctAnswers[i],
+        userAnswer: userAnswer[i],
       };
-      console.log(this.totalAnswers); //[value of user answer, alt answered]
     }
-    //this.totalAnswers.splice(0,2);
-    
-    
+
+    return this.totalAnswers, this.points;
   }
 }

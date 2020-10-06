@@ -3,11 +3,11 @@ class Questions {
     this.questions = questions;
     this.currentIndex = 0;
     this.questionsAmount = questionsAmount;
-    this.answers = [];
-    this.answers2 = [];
+    this.correctAnswers = [];
+    this.userAnswers = [];
     this.mainQuestion = [];
-    this.correct = [];
-    this.correctValue = [];
+
+    this.midArray = [];
   }
   nextQuestion(questions, questionsAmount) {
     let c1 = document.getElementById("c1");
@@ -21,17 +21,21 @@ class Questions {
     let current = this.currentIndex - 1;
 
     inputAmount.innerHTML = this.currentIndex + "/" + questionsAmount;
-    if (this.currentIndex + 1 > questionsAmount) {
+    if (this.currentIndex > questionsAmount) {
       window.alert("Du är klar!");
+
+      inputAmount.innerHTML =
+        "Du har svarat på alla frågor! klicka på Rätta och sedan Visa resultat för att se hur bra du gjorde ifrån dig!";
     }
+    let correctArray = [];
+    correctArray[current] = questions[current].correct_answers;
+    this.midArray[current] = Object.values(correctArray[current]);
+    this.correctAnswers[current] = Array.from(this.midArray[current]);
 
-    this.correct[current] = questions[current].correct_answers;
-    this.correctValue[current] = Object.values(this.correct[current]);
-    //Makes the different question answers into an array
+    //Makes the different question answers into an Array^
 
-    //console.log(current);
     document.getElementById("quest").textContent = questions[current].question;
-   
+
     this.mainQuestion[current] = questions[current].question;
     //console.log(this.correct);
 
@@ -68,56 +72,42 @@ class Questions {
     }
 
     if (c1.checked === true) {
-      this.answers[this.currentIndex] =
-        questions[current - 1].correct_answers.answer_a_correct;
-
-      this.answers2[this.currentIndex] = 1;
+      this.userAnswers[current] = 0;
     }
 
     if (c2.checked === true) {
-      this.answers[this.currentIndex] =
-        questions[current - 1].correct_answers.answer_b_correct; //Current -1, otherwise it will check the next questions index
-
-      this.answers2[this.currentIndex] = 2;
+      this.userAnswers[current] = 1;
     }
 
     if (c3.checked === true) {
-      this.answers[this.currentIndex] =
-        questions[current - 1].correct_answers.answer_c_correct;
-
-      this.answers2[this.currentIndex] = 3;
+      this.userAnswers[current] = 2;
     }
 
     if (c4.checked === true) {
-      this.answers[this.currentIndex] =
-        questions[current - 1].correct_answers.answer_d_correct;
-
-      this.answers2[this.currentIndex] = 4;
+      this.userAnswers[current] = 3;
     }
     if (c5.checked === true) {
-      this.answers[this.currentIndex] =
-        questions[current - 1].correct_answers.answer_e_correct;
-
-      this.answers2[this.currentIndex] = 5;
+      this.userAnswers[current] = 4;
     }
     if (c6.checked === true) {
-      this.answers[this.currentIndex] =
-        questions[current - 1].correct_answers.answer_f_correct;
-
-      this.answers2[this.currentIndex] = 6;
+      this.userAnswers[current] = 5;
     }
-    //Cleanup
+
     c1.checked = false;
     c2.checked = false;
-    c3.checked = false;
+    c3.checked = false; //Cleanup on all the checkboxes before next question.
     c4.checked = false;
     c5.checked = false;
     c6.checked = false;
 
-    console.log(this.answers);
+    //console.log(this.correctAnswers);
 
-    return this.answers, this.answers2, this.mainQuestion, this.correctValue;
-
-   
+    return (
+      this.correctAnswers,
+      this.userAnswers,
+      this.mainQuestion,
+      this.correctValue,
+      this.questionsAmount
+    );
   }
 }

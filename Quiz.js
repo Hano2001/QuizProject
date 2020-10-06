@@ -27,7 +27,7 @@ class Quiz {
     }
     inputAmount.innerHTML = this.questionsAmount;
     userName.innerHTML = this.name;
-    return this.questionsAmount;
+    return //this.questionsAmount;
   }
 
   fetchQuestions() {
@@ -42,8 +42,8 @@ class Quiz {
         console.log(result);
 
         this.questions = result;
-
-        return this.questions;
+        console.log(this.questionsAmount);
+        return this.questions, this.questionsAmount;
 
         
         
