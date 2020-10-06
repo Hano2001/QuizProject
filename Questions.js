@@ -6,17 +6,10 @@ class Questions {
     this.correctAnswers = [];
     this.userAnswers = [];
     this.mainQuestion = [];
-    this.checkArray=[];
-    this.midArray=[];
+    this.checkArray = [];
+    this.midArray = [];
   }
   nextQuestion(questions, questionsAmount) {
-    let c1 = document.getElementById("c1");
-    let c2 = document.getElementById("c2");
-    let c3 = document.getElementById("c3");
-    let c4 = document.getElementById("c4");
-    let c5 = document.getElementById("c5");
-    let c6 = document.getElementById("c6");
-
     this.currentIndex += 1;
     let current = this.currentIndex - 1; //I have a different currentIndex, so I don't miss the [0] values.
 
@@ -31,10 +24,9 @@ class Questions {
     correctArray[current] = questions[current].correct_answers;
     this.midArray[current] = Object.values(correctArray[current]);
     this.correctAnswers[current] = Array.from(this.midArray[current]);
-    
+
     //Makes the different question answers into an Array^
 
-    
     document.getElementById("quest").textContent = questions[current].question;
 
     this.mainQuestion[current] = questions[current].question;
@@ -73,26 +65,17 @@ class Questions {
     }
     //this.checkArray.splice(0, this.checkArray.length);
     let checks = document.querySelectorAll("input[type=checkbox]:checked");
+    let arrayFromChecks = Array.from(checks);
+    let checkMap = arrayFromChecks.map(function(check){
+      return check.value;
+    })
+
     
+      this.checkArray.push(checkMap);
     
-    for (let i = 0; i < checks.length; i++) {
-      
-      
-      this.checkArray.push(checks[i].value)
-      
-      
-      
-    }
-    
-    
+
     console.log(this.checkArray);
-   //this.checkArray.splice(0, this.checkArray.length
-
-    
-    
-    
-
-    
+    //this.checkArray.splice(0, this.checkArray.length
 
     c1.checked = false;
     c2.checked = false;
