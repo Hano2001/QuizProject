@@ -1,81 +1,77 @@
 class Questions {
-  constructor(questionsAmount, questions) {
-    this.questions = questions;
+  constructor() {
+    this.questions = 0;
     this.currentIndex = 0;
-    this.questionsAmount = questionsAmount;
+    this.questionsAmount = 0;
     this.correctAnswers = [];
     this.userAnswers = [];
     this.mainQuestion = [];
-    this.checkArray = [];
+    
     this.midArray = [];
   }
   nextQuestion(questions, questionsAmount) {
-    this.currentIndex += 1;
-    let current = this.currentIndex - 1; //I have a different currentIndex, so I don't miss the [0] values.
-
-    inputAmount.innerHTML = this.currentIndex + "/" + questionsAmount;
-    if (this.currentIndex > questionsAmount) {
+    //console.log(this.currentIndex);
+    //console.log(typeof questionsAmount);
+    let amount = parseInt(questionsAmount);
+    inputAmount.innerHTML = this.currentIndex +1 + "/" + questionsAmount;
+    if (this.currentIndex === amount) {
       window.alert("Du är klar!");
 
       inputAmount.innerHTML =
         "Du har svarat på alla frågor! klicka på Rätta och sedan Visa resultat för att se hur bra du gjorde ifrån dig!";
     }
     let correctArray = [];
-    correctArray[current] = questions[current].correct_answers;
-    this.midArray[current] = Object.values(correctArray[current]);
-    this.correctAnswers[current] = Array.from(this.midArray[current]);
+    correctArray[this.currentIndex] = questions[this.currentIndex].correct_answers;
+    this.midArray[this.currentIndex] = Object.values(correctArray[this.currentIndex]);
+    this.correctAnswers[this.currentIndex] = Array.from(this.midArray[this.currentIndex]);
 
     //Makes the different question answers into an Array^
 
-    document.getElementById("quest").textContent = questions[current].question;
+    document.getElementById("quest").textContent = questions[this.currentIndex].question;
 
-    this.mainQuestion[current] = questions[current].question;
-    //console.log(this.correct);
-
-    //console.log(correctValue);
+    this.mainQuestion[this.currentIndex] = questions[this.currentIndex].question;
+    
 
     document.getElementById("alt1").textContent =
-      questions[current].answers.answer_a;
+      questions[this.currentIndex].answers.answer_a;
     document.getElementById("alt2").textContent =
-      questions[current].answers.answer_b;
-    if (questions[current].answers.answer_c != null) {
+      questions[this.currentIndex].answers.answer_b;
+    if (questions[this.currentIndex].answers.answer_c != null) {
       document.getElementById("alt3").textContent =
-        questions[current].answers.answer_c;
+        questions[this.currentIndex].answers.answer_c;
     } else {
       document.getElementById("alt3").textContent = "";
     }
 
-    if (questions[current].answers.answer_d != null) {
+    if (questions[this.currentIndex].answers.answer_d != null) {
       document.getElementById("alt4").textContent =
-        questions[current].answers.answer_d;
+        questions[this.currentIndex].answers.answer_d;
     } else {
       document.getElementById("alt4").textContent = "";
     }
-    if (questions[current].answers.answer_e != null) {
+    if (questions[this.currentIndex].answers.answer_e != null) {
       document.getElementById("alt5").textContent =
-        questions[current].answers.answer_e;
+        questions[this.currentIndex].answers.answer_e;
     } else {
       document.getElementById("alt5").textContent = "";
     }
-    if (questions[current].answers.answer_f != null) {
+    if (questions[this.currentIndex].answers.answer_f != null) {
       document.getElementById("alt6").textContent =
-        questions[current].answers.answer_f;
+        questions[this.currentIndex].answers.answer_f;
     } else {
       document.getElementById("alt6").textContent = "";
     }
-    //this.checkArray.splice(0, this.checkArray.length);
+
     let checks = document.querySelectorAll("input[type=checkbox]:checked");
     let arrayFromChecks = Array.from(checks);
-    let checkMap = arrayFromChecks.map(function(check){
+    let checkMap = arrayFromChecks.map(function (check) {
       return check.value;
-    })
+    });
 
-    
-      this.checkArray.push(checkMap);
-    
+    this.userAnswers.push(checkMap);
 
-    console.log(this.checkArray);
-    //this.checkArray.splice(0, this.checkArray.length
+    // console.log(this.userAnswers);
+    // console.log(this.correctAnswers);
 
     c1.checked = false;
     c2.checked = false;
@@ -85,7 +81,7 @@ class Questions {
     c6.checked = false;
 
     //console.log(this.correctAnswers);
-
+    this.currentIndex += 1;
     return (
       this.correctAnswers,
       this.userAnswers,

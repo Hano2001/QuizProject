@@ -5,11 +5,17 @@ class Correct {
     this.totalAnswers = [];
     
   }
+  
+  // let checks = document.querySelectorAll("input[type=checkbox]:checked");
+  // let arrayFromChecks = Array.from(checks);
+  // let checkMap = arrayFromChecks.map(function (check) {
+  //   return check.value;
+  // });
   correcting(correctAnswers, userAnswer, mainQuestion, questionsAmount) {
    
     
     
-    
+    console.log(correctMap);
     
     
     //correctAnswers.splice(0, 2); // I used splice on these two Arrays. The first two index's is empty.

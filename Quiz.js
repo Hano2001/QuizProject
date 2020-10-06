@@ -1,12 +1,12 @@
 class Quiz {
-  constructor(name, questionsAmount) {
-    this.name = name;
-    this.questionsAmount = questionsAmount;
+  constructor() {
+    this.name = "";
+    this.questionsAmount = 0;
     
     this.questions = [];
     
     
-    //let question = new Questions(this.questionsAmount,this.questions);
+    
   }
 
   submitInfo() {
@@ -31,18 +31,16 @@ class Quiz {
   }
 
   fetchQuestions() {
-    let amount = this.questionsAmount;
-    console.log(amount);
     fetch(
       "https://quizapi.io/api/v1/questions?apiKey=KKWjowvjvm8ginRJqxe6NsYhsyLuecmF7p8JMfJ3&limit=" +
-        amount
+      this.questionsAmount
     )
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        //console.log(result);
 
         this.questions = result;
-        console.log(this.questionsAmount);
+        
         return this.questions, this.questionsAmount;
 
         
