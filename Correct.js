@@ -27,20 +27,16 @@ class Correct {
         window.location.replace("script.js");
       });
     }
-    let corrArray = [];
-    let corrArray2 = [];
-    corrArray[this.index] = Object.values(
+    let questionsAnswers = [];
+    let currentQuestionAnswers = [];
+    questionsAnswers[this.index] = Object.values(
       quiz.question.answers[this.index]
     );
-    corrArray2 = Array.from(corrArray[this.index]);
-    //console.log(testArray2);
+    currentQuestionAnswers = questionsAnswers[this.index];
 
-    //console.log(testArray2);
-
-    let corrList = quiz.question.correctAnswers[this.index]; //Strips each correctAnswers index into it's own array
+    let corrList = quiz.question.correctAnswers[this.index];
     let corrIndex = [];
-    //console.log(amount);
-    let testAnswers = [];
+
     for (let i = 0; i < corrList.length; i++) {
       if (corrList[i] === "true") {
         //Checks and pushes the index of every correct answer into a new Array.
@@ -49,15 +45,15 @@ class Correct {
     }
     let rightAnswer = [];
     for (let i = 0; i < corrIndex.length; i++) {
-      rightAnswer[i] = corrArray2[corrIndex[i]];
+      rightAnswer[i] = currentQuestionAnswers[corrIndex[i]];
     }
 
     let yourAnswer = [];
 
     for (let i = 0; i < quiz.question.userAnswers.length; i++) {
-      yourAnswer = corrArray2[quiz.question.userAnswers[i]];
+      yourAnswer = currentQuestionAnswers[quiz.question.userAnswers[i]];
     }
-    console.log(corrArray2);
+    console.log(currentQuestionAnswers);
     console.log(quiz.question.userAnswers);
     console.log(yourAnswer);
 
@@ -74,7 +70,6 @@ class Correct {
     document.getElementById("userScore").textContent =
       "Poäng: " + this.points + "/" + quiz.question.amount;
 
-  
     if (this.index == 0) {
       let nextBtn = document.getElementById("next");
       nextBtn.parentNode.removeChild(nextBtn);
