@@ -22,9 +22,10 @@ class Questions {
       inputAmount.innerHTML =
         "Du har svarat på alla frågor! klicka på Rätta för att se hur bra du gjorde ifrån dig!";
     }
-
+if(this.currentIndex < questionsAmount) {
     this.answers[this.currentIndex] = questions[this.currentIndex].answers;
-    console.log(this.answers);
+    
+    
      
 
     let correctArray = [];
@@ -72,15 +73,15 @@ class Questions {
     } else {
       document.getElementById("alt6").textContent = "";
     }
-    
-    
-
-  
-
-  
-
     this.currentIndex += 1;
-    this.index2 += 1;
+  }
+
+  
+
+  
+
+    
+
   }
   getUserAnswers(){
     let checks = document.querySelectorAll("input[type=checkbox]:checked");
