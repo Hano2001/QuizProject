@@ -30,7 +30,7 @@ class Correct {
     let corrArray = [];
     let corrArray2 = [];
     corrArray[this.index] = Object.values(
-      quiz.question.answersArray[this.index]
+      quiz.question.answers[this.index]
     );
     corrArray2 = Array.from(corrArray[this.index]);
     //console.log(testArray2);
@@ -74,14 +74,7 @@ class Correct {
     document.getElementById("userScore").textContent =
       "Poäng: " + this.points + "/" + quiz.question.amount;
 
-    for (let i = 0; i < quiz.question.amount; i++) {
-      this.totalAnswers[i] = {
-        Question: quiz.question.mainQuestion[i], //If the userAnswer is thet same as the correct index(s). The user will get a point.
-        "CorrectAnswer?": stringCorrIndex[i],
-        userAnswer: quiz.question.userAnswers[i],
-      };
-    }
-
+  
     if (this.index == 0) {
       let nextBtn = document.getElementById("next");
       nextBtn.parentNode.removeChild(nextBtn);

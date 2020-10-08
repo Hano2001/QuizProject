@@ -10,7 +10,7 @@ class Questions {
     this.midArray = [];
     this.index2 = -1;
     this.answers = [];
-    this.answersArray = [];
+    
   }
   displayNextQuestion(questions, questionsAmount) {
     let questionNr = this.currentIndex + 1; //Adding a variable with the current index +1, to display the question number, there is no question 0.
@@ -24,8 +24,8 @@ class Questions {
     }
 
     this.answers[this.currentIndex] = questions[this.currentIndex].answers;
-
-    this.answersArray = Array.from(this.answers); //Makes the different question answers into an Array
+    console.log(this.answers);
+     
 
     let correctArray = [];
     correctArray[this.currentIndex] =
