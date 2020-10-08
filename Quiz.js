@@ -2,7 +2,7 @@ class Quiz {
   constructor() {
     this.name = "";
     this.questionsAmount = 0;
-    //this.question=();
+
     this.questions = [];
   }
 
@@ -27,7 +27,6 @@ class Quiz {
     alert("Tryck på Quizstart! för att starta quizen!");
     inputAmount.innerHTML = this.questionsAmount;
     userName.innerHTML = "Namn: " + this.name;
-    return; //this.questionsAmount;
   }
 
   fetchQuestions() {
@@ -38,7 +37,7 @@ class Quiz {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        // console.log(this.questionsAmount);
+
         this.questions = result;
 
         this.question = new Questions();
