@@ -13,7 +13,7 @@ class Questions {
     this.userAnswers = [];
     this.mainQuestion = [];
     this.amount = 0;
-    this.midArray = [];
+    
 
     this.answers = [];
   }
@@ -33,12 +33,11 @@ class Questions {
       let correctArray = [];
       correctArray[this.currentIndex] =
         questions[this.currentIndex].correct_answers;
-      this.midArray[this.currentIndex] = Object.values(
+      this.correctAnswers[this.currentIndex] = Object.values(
         correctArray[this.currentIndex]
       ); //Makes the different question answer values into an Array
-      this.correctAnswers[this.currentIndex] = Array.from(
-        this.midArray[this.currentIndex]
-      );
+     
+    
 
       document.getElementById("quest").textContent =
         questions[this.currentIndex].question;
@@ -88,9 +87,9 @@ class Questions {
   }
   getUserAnswers() {
     let checks = document.querySelectorAll("input[type=checkbox]:checked");
-    let arrayFromChecks = Array.from(checks);
+    let arrayFromChecks = Array.from(checks);              //HTML collection of the checkboxes. And also reads the value of each checked.
     let checkMap = arrayFromChecks.map(function (check) {
-      //HTML collection of the checkboxes. And also reads the value of each checked.
+      
       return check.value;
     });
     console.log("checkmap");

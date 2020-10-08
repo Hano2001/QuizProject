@@ -1,15 +1,15 @@
 class Quiz {
   constructor() {
-    this.name = "";
+    this.userName = document.getElementById("userName");
+    this.name = window.prompt("Vad heter du?");
+    this.userName.innerHTML = "Namn: " + this.name;
     this.questionsAmount = 0;
-
     this.questions = [];
   }
 
   submitInfo() {
     let inputAmount = document.getElementById("inputAmount");
-    let userName = document.getElementById("userName");
-    this.name = window.prompt("Vad heter du?");
+
     this.questionsAmount = window.prompt("Hur många frågor? (5-10)");
     if (this.questionsAmount > 10) {
       alert(
@@ -26,7 +26,6 @@ class Quiz {
     }
     alert("Tryck på Quizstart! för att starta quizen!");
     inputAmount.innerHTML = this.questionsAmount;
-    userName.innerHTML = "Namn: " + this.name;
   }
 
   fetchQuestions() {
@@ -45,4 +44,9 @@ class Quiz {
         this.question.displayNextQuestion(this.questions, this.questionsAmount);
       });
   }
+  reset(){
+    this.questionsAmount = 0;
+    this.questions = [];
+  }
 }
+

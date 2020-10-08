@@ -18,14 +18,7 @@ class Correct {
           " möjliga!"
       );
 
-      let reset = document.getElementById("reset");
-      let resetBtn = document.createElement("button");
-      resetBtn.innerHTML = "Nytt spel";
-      reset.appendChild(resetBtn);
-
-      resetBtn.addEventListener("click", function (e) {
-        window.location.replace("script.js");
-      });
+      
     }
     let questionsAnswers = [];
     let currentQuestionAnswers = [];
@@ -68,15 +61,15 @@ class Correct {
     document.getElementById("userScore").textContent =
       "Poäng: " + this.points + "/" + quiz.question.amount;
 
-    if (this.index == 0) {
-      let nextBtn = document.getElementById("next");
-      nextBtn.parentNode.removeChild(nextBtn);
-      document
-        .querySelectorAll("input[type=checkbox]")
-        .forEach((box) => box.remove());
-      let corrBtn = document.getElementById("correct");
-      corrBtn.innerHTML = "Nästa";
-    }
+    // if (this.index == 0) {
+    //   let nextBtn = document.getElementById("next");
+    //   nextBtn.parentNode.removeChild(nextBtn);
+    //   document
+    //     .querySelectorAll("input[type=checkbox]")
+    //     .forEach((box) => box.remove());
+    //   let corrBtn = document.getElementById("correct");
+    //   corrBtn.innerHTML = "Nästa";
+    // }
 
     inputAmount.innerHTML = this.index + 1 + "/" + quiz.question.amount; //index + 1, because there is no question 0.
 
@@ -102,5 +95,12 @@ class Correct {
       quiz.questions[this.index].answers.answer_f;
 
     this.index += 1;
+  }
+
+  reset(){
+    this.points = 0;
+    this.answerAmount = 0;
+    this.totalAnswers = [];
+    this.index = 0;
   }
 }
