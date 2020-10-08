@@ -78,7 +78,7 @@ class Questions {
     let checkMap = arrayFromChecks.map(function (check) {     //HTML collection of the checkboxes. And also reads the value of each checked.
       return check.value;
     });
-    
+    console.log("checkmap");
     this.userAnswers.push(checkMap);
     
    // }
@@ -95,15 +95,6 @@ class Questions {
     //console.log(this.amount);
     this.currentIndex += 1;
     this.index2 +=1
-    return (
-      this.correctAnswers,
-      this.userAnswers,
-      this.mainQuestion,
-      this.correctValue,
-      this.amount,
-      this.answersArray
-      
-      
-    );
+    
   }
 }

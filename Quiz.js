@@ -24,9 +24,9 @@ class Quiz {
       );
       this.questionsAmount = 5;
     }
-    alert("Tryck på Quizstart! för att starta quizen!")
+    alert("Tryck på Quizstart! för att starta quizen!");
     inputAmount.innerHTML = this.questionsAmount;
-    userName.innerHTML ="Namn: " + this.name;
+    userName.innerHTML = "Namn: " + this.name;
     return; //this.questionsAmount;
   }
 
@@ -37,19 +37,13 @@ class Quiz {
     )
       .then((response) => response.json())
       .then((result) => {
-         console.log(result);
+        console.log(result);
         // console.log(this.questionsAmount);
         this.questions = result;
 
         this.question = new Questions();
-        
-        
-        this.question.nextQuestion( this.questions, this.questionsAmount);
-          
-       
-        
 
-        return this.questionsAmount, this.question;
+        this.question.nextQuestion(this.questions, this.questionsAmount);
       });
   }
 }
