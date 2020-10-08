@@ -12,7 +12,7 @@ class Questions {
     this.answers = [];
     this.answersArray = [];
   }
-  nextQuestion(questions, questionsAmount) {
+  displayNextQuestion(questions, questionsAmount) {
     let questionNr = this.currentIndex + 1; //Adding a variable with the current index +1, to display the question number, there is no question 0.
     this.amount = parseInt(questionsAmount);
     inputAmount.innerHTML = "Fråga: " + questionNr + "/" + questionsAmount;
@@ -73,6 +73,16 @@ class Questions {
       document.getElementById("alt6").textContent = "";
     }
     
+    
+
+  
+
+  
+
+    this.currentIndex += 1;
+    this.index2 += 1;
+  }
+  getUserAnswers(){
     let checks = document.querySelectorAll("input[type=checkbox]:checked");
     let arrayFromChecks = Array.from(checks);
     let checkMap = arrayFromChecks.map(function (check) {
@@ -81,9 +91,9 @@ class Questions {
     });
     console.log("checkmap");
     this.userAnswers.push(checkMap);
+  }
 
-  
-
+  uncheckBoxes(){
     c1.checked = false;
     c2.checked = false;
     c3.checked = false; //Cleanup on all the checkboxes before next question.
@@ -91,7 +101,5 @@ class Questions {
     c5.checked = false;
     c6.checked = false;
 
-    this.currentIndex += 1;
-    this.index2 += 1;
   }
 }

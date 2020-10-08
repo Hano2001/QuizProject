@@ -42,7 +42,7 @@ class Quiz {
 
         this.question = new Questions();
 
-        this.question.nextQuestion(this.questions, this.questionsAmount);
+        this.question.displayNextQuestion(this.questions, this.questionsAmount);
       });
   }
 }

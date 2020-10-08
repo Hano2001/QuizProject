@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let nextBtn = document.getElementById("next");
 
   nextBtn.addEventListener("click", function (e) {
-    quiz.question.nextQuestion(quiz.questions, quiz.questionsAmount);
+    quiz.question.displayNextQuestion(quiz.questions, quiz.questionsAmount);
+    quiz.question.getUserAnswers();
+    quiz.question.uncheckBoxes();
    });
   
   
