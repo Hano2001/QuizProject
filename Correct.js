@@ -47,15 +47,13 @@ class Correct {
     for (let i = 0; i < corrIndex.length; i++) {
       rightAnswer[i] = currentQuestionAnswers[corrIndex[i]];
     }
-
+    let userCurrentQuestionAnswers = quiz.question.userAnswers[this.index];
     let yourAnswer = [];
 
-    for (let i = 0; i < quiz.question.userAnswers.length; i++) {
-      yourAnswer = currentQuestionAnswers[quiz.question.userAnswers[i]];
+    for (let i = 0; i < userCurrentQuestionAnswers.length; i++) {
+      yourAnswer[i] = currentQuestionAnswers[userCurrentQuestionAnswers[i]];
     }
-    console.log(currentQuestionAnswers);
-    console.log(quiz.question.userAnswers);
-    console.log(yourAnswer);
+    
 
     document.getElementById("correctAnswer").textContent =
       "Rätt svar: " + rightAnswer;
