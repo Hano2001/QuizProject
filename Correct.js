@@ -4,6 +4,7 @@ class Correct {
     this.answerAmount = 0;
     this.totalAnswers = [];
     this.index = 0;
+    
   }
 
   correcting(quiz) {
@@ -17,6 +18,8 @@ class Correct {
           quiz.question.amount +
           " möjliga!"
       );
+
+     
 
       
     }
