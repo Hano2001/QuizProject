@@ -4,6 +4,12 @@ class Correct {
     this.answerAmount = 0;
     this.totalAnswers = [];
     this.index = 0;
+    this.c1 = document.getElementById("c1");
+    this.c2 = document.getElementById("c2");
+    this.c3 = document.getElementById("c3");
+    this.c4 = document.getElementById("c4");
+    this.c5 = document.getElementById("c5");
+    this.c6 = document.getElementById("c6");
     
   }
 
@@ -16,12 +22,22 @@ class Correct {
           this.points +
           " poäng av " +
           quiz.question.amount +
-          " möjliga!"
+          " möjliga! Klicka på Nytt spel för nya frågor och nya utmaningar!"
       );
 
      
 
       
+    }
+
+    else{
+      this.c1.disabled = true;
+      this.c2.disabled = true;
+      this.c3.disabled = true;    //Disables all checkboxes
+      this.c4.disabled = true;
+      this.c5.disabled = true;
+      this.c6.disabled = true;
+
     }
     let questionsAnswers = [];
     let currentQuestionAnswers = [];
@@ -100,7 +116,7 @@ class Correct {
     this.index += 1;
   }
 
-  reset(){
+  reset(){    //resets the index for a new game.
     this.points = 0;
     this.answerAmount = 0;
     this.totalAnswers = [];

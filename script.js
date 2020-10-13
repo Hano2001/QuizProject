@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   let resetBtn = document.getElementById("reset");
-  resetBtn.addEventListener("click", function (e) {
+  resetBtn.addEventListener("click", function (e) { // Resets the game and fetches new questions.
     quiz.reset();
     correct.reset();
     quiz.submitInfo();

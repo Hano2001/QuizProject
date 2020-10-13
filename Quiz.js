@@ -13,7 +13,7 @@ class Quiz {
     this.questionsAmount = window.prompt("Hur många frågor? (5-10)");
     if (this.questionsAmount > 10) {
       alert(
-        "Du angav för många frågor. Tio är max, du får svara på tio frågor."
+        "Du angav för många frågor. Tio är max, du får svara på tio frågor."    // Makes sure that the amount of questions is at least 5, and not more than 10.
       );
       this.questionsAmount = 10;
     }
@@ -28,7 +28,7 @@ class Quiz {
     inputAmount.innerHTML = this.questionsAmount;
   }
 
-  fetchQuestions() {
+  fetchQuestions() {    //Fetches the questions from the API and creates a new question class with the fetched questions.
     fetch(
       "https://quizapi.io/api/v1/questions?apiKey=KKWjowvjvm8ginRJqxe6NsYhsyLuecmF7p8JMfJ3&limit=" +
         this.questionsAmount
@@ -44,9 +44,9 @@ class Quiz {
         this.question.displayNextQuestion(this.questions, this.questionsAmount);
       });
   }
-  reset(){
+  reset(){    //Resets the index for a new game.
     this.questionsAmount = 0;
-    this.questions = [];
+    this.questions = [];  
   }
 }
 

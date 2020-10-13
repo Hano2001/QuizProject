@@ -49,7 +49,7 @@ class Questions {
         questions[this.currentIndex].answers.answer_a;
       document.getElementById("alt2").textContent =
         questions[this.currentIndex].answers.answer_b;
-      if (questions[this.currentIndex].answers.answer_c != null) {
+      if (questions[this.currentIndex].answers.answer_c != null) {  // Makes sure that if the answer don't exist, there will be an empty field with disabled checkbox.
         this.c3.disabled = false;
         document.getElementById("alt3").textContent =
           questions[this.currentIndex].answers.answer_c;
